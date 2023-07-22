@@ -1,0 +1,11 @@
+# Enable URL rewriting
+RewriteEngine on
+
+# Check if the requested filename is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check if the requested filename is not a file
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Rewrite the request to index.php with the original path appended as a query string
+RewriteRule ^(.+)$ index.php/$1 [L,QSA]
